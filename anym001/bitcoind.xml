@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>bitcoind</Name>
-  <Repository>ghcr.io/anym001/bitcoind:30.0</Repository>
+  <Repository>ghcr.io/anym001/bitcoind:latest</Repository>
   <Registry>https://ghcr.io/anym001/bitcoind</Registry>
   <Network>bridge</Network>
   <MyIP/>
