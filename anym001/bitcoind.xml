@@ -7,8 +7,8 @@
   <MyIP/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support/>
-  <Project/>
+  <Support>https://forums.unraid.net/topic/195410-support-anym001-application-dockers/</Support>
+  <Project>https://github.com/bitcoin/bitcoin</Project>
   <Overview>Run your own Bitcoin node and contribute to the decentralization of the Bitcoin network!&#13;
 This template deploys a full bitcoind instance based on Bitcoin Core. (https://bitcoin.org)&#13;
 &#13;
