@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>bitcoind</Name>
   <Repository>ghcr.io/anym001/bitcoind:latest</Repository>
-  <Registry>https://ghcr.io/anym001/bitcoind</Registry>
+  <Registry>https://ghcr.io/anym001/docker-bitcoind</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>bash</Shell>
