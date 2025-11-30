@@ -32,7 +32,7 @@ Example: https://github.com/bitcoin/bitcoin/blob/master/share/examples/bitcoin.c
   <Config Name="Host Port 2" Target="8333" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8333</Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
-  <Config Name="UMASK" Target="UMASK" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">0002</Config>
+  <Config Name="UMASK" Target="UMASK" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">002</Config>
   <Config Name="DATA_PERM" Target="DATA_PERM" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">2770</Config>
   <TailscaleStateDir/>
 </Container>
