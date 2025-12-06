@@ -12,7 +12,7 @@
   <Overview>
 Run your own Electrum server backed by your Bitcoin Core node!
 This container deploys Electrs, a fast and lightweight Electrum Rust Server that indexes your Bitcoin blockchain and provides a local Electrum-compatible API.
-Make sure your bitcoind container is running and the RPC & P2P ports are reachable by Electrs.
+Make sure your bitcoind container is running and the RPC/P2P ports are reachable by Electrs.
 Create a electrs.toml configuration file in yout data directory.
 Project: https://github.com/romanz/electrs
   </Overview>
