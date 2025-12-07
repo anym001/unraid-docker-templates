@@ -27,8 +27,8 @@ Project: https://github.com/romanz/electrs
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="Host Path 1" Target="/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/electrs</Config>
-  <Config Name="Host Path 2" Target="/home/electrs/.bitcoin" Default="" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/bitcoind</Config>
+  <Config Name="Data Dir" Target="/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/electrs</Config>
+  <Config Name="Bitcoind Dir" Target="/home/electrs/.bitcoin" Default="" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/bitcoind</Config>
   <Config Name="Host Port 1" Target="50001" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">50001</Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
