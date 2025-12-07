@@ -27,7 +27,7 @@ Example: https://github.com/bitcoin/bitcoin/blob/master/share/examples/bitcoin.c
   <DonateText/>
   <DonateLink/>
   <Requires/>
-  <Config Name="Data Dir" Target="/home/bitcoin/.bitcoin" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/</Config>
+  <Config Name="Data Dir" Target="/home/bitcoin/.bitcoin" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/bitcoin/bitcoind</Config>
   <Config Name="Host Port 1" Target="8332" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8332</Config>
   <Config Name="Host Port 2" Target="8333" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8333</Config>
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
