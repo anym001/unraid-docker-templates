@@ -20,7 +20,7 @@ Project: https://github.com/romanz/electrs
   <WebUI/>
   <TemplateURL/>
   <Icon>https://raw.githubusercontent.com/anym001/unraid-docker-templates/main/anym001/images/electrs.png</Icon>
-  <ExtraParams/>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
   <PostArgs/>
   <CPUset/>
   <DateInstalled>1765050619</DateInstalled>
