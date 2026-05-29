@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>pocketlog</Name>
+  <Repository>ghcr.io/anym001/pocketlog:latest</Repository>
+  <Registry>https://ghcr.io/anym001/pocketlog</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/195410-support-anym001-application-dockers/</Support>
+  <Project>https://github.com/anym001/pocketlog</Project>
+  <Overview>PocketLog is a self-hosted budget book (household finances) Progressive Web App. It runs in the browser on all common platforms and can be installed to the homescreen as an app.&#13;
+&#13;
+Designed for private self-hosting: your data lives exclusively in your own MariaDB, the app runs in your own container. All assets (fonts, icons, JS libraries) are served from your own origin - no CDN calls, no external connections, no tracking, no telemetry.&#13;
+&#13;
+Features: income &amp; expense transactions with categories and tags, reports &amp; charts, full-text search, CSV import/export, offline support, light/dark themes, multi-user with its own username/password login and brute-force protection.&#13;
+&#13;
+REQUIRES an external MariaDB 10.6+ instance. Create a database and user, then set the DB_* variables below. On first launch open the WebUI to create the initial admin account.&#13;
+&#13;
+Project: https://github.com/anym001/pocketlog</Overview>
+  <Category/>
+  <WebUI>http://[IP]:[PORT:8000]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://raw.githubusercontent.com/anym001/pocketlog/main/frontend/icons/icon-512.png</Icon>
+  <ExtraParams>--restart=unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1780012800</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires>An external MariaDB 10.6+ instance is required.</Requires>
+  <Config Name="WebUI" Target="8000" Default="8000" Mode="tcp" Description="HTTP port of the PocketLog web interface" Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+  <Config Name="DB_HOST" Target="DB_HOST" Default="mariadb" Mode="" Description="Hostname or IP of the MariaDB instance" Type="Variable" Display="always" Required="true" Mask="false">mariadb</Config>
+  <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Mode="" Description="MariaDB port" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
+  <Config Name="DB_NAME" Target="DB_NAME" Default="pocketlog" Mode="" Description="Database name" Type="Variable" Display="always" Required="true" Mask="false">pocketlog</Config>
+  <Config Name="DB_USER" Target="DB_USER" Default="pocketlog" Mode="" Description="Database user" Type="Variable" Display="always" Required="true" Mask="false">pocketlog</Config>
+  <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="Database password" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="TZ" Target="TZ" Default="Europe/Berlin" Mode="" Description="Container timezone" Type="Variable" Display="always" Required="false" Mask="false">Europe/Berlin</Config>
+</Container>
