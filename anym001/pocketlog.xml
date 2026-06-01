@@ -45,4 +45,5 @@ Project: https://github.com/anym001/pocketlog</Overview>
   <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="MariaDB option only: database password. Required once any DB_* variable is set (MariaDB active)." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
   <Config Name="DEFAULT_LOCALE" Target="DEFAULT_LOCALE" Default="de-DE" Mode="" Description="Default locale for new accounts (BCP-47, e.g. de-DE, de-AT, de-CH, en-GB, en-US). Each user can override it." Type="Variable" Display="advanced" Required="false" Mask="false">de-DE</Config>
   <Config Name="DEFAULT_CURRENCY" Target="DEFAULT_CURRENCY" Default="EUR" Mode="" Description="Default currency for new accounts (ISO 4217, e.g. EUR, USD, GBP, CHF, JPY). Display-only, per-user overridable." Type="Variable" Display="advanced" Required="false" Mask="false">EUR</Config>
+  <TailscaleStateDir/>
 </Container>
