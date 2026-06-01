@@ -11,11 +11,15 @@
   <Project>https://github.com/anym001/pocketlog</Project>
   <Overview>PocketLog is a self-hosted budget book (household finances) Progressive Web App. It runs in the browser on all common platforms and can be installed to the homescreen as an app.&#13;
 &#13;
-Designed for private self-hosting: your data lives exclusively in your own MariaDB, the app runs in your own container. All assets (fonts, icons, JS libraries) are served from your own origin - no CDN calls, no external connections, no tracking, no telemetry.&#13;
+Designed for private self-hosting: your data lives exclusively on your own server. By default PocketLog uses an embedded SQLite database (no separate database needed) - just map the /config volume so your data survives container updates. An external MariaDB is optional. The app runs in your own container. All assets (fonts, icons, JS libraries) are served from your own origin - no CDN calls, no external connections, no tracking, no telemetry.&#13;
 &#13;
 Features: income &amp; expense transactions with categories and tags, reports &amp; charts, full-text search, CSV import/export, offline support, light/dark themes, multi-user with its own username/password login and brute-force protection.&#13;
 &#13;
-REQUIRES an external MariaDB 10.6+ instance. Create a database and user, then set the DB_* variables below. On first launch open the WebUI to create the initial admin account.&#13;
+STORAGE: By default the SQLite database lives at /config/db/pocketlog.db - map /config to your appdata share to persist it. Set PUID=99 / PGID=100 so the files are owned by nobody:users on Unraid.&#13;
+&#13;
+OPTIONAL MariaDB: To use an external MariaDB 10.6+ instead, create a database and user and set the DB_* variables. Setting any DB_* variable switches PocketLog from SQLite to MariaDB; DB_PASSWORD is then required.&#13;
+&#13;
+On first launch open the WebUI to create the initial admin account.&#13;
 &#13;
 Project: https://github.com/anym001/pocketlog</Overview>
   <Category/>
@@ -28,14 +32,18 @@ Project: https://github.com/anym001/pocketlog</Overview>
   <DateInstalled>1780012800</DateInstalled>
   <DonateText/>
   <DonateLink/>
-  <Requires>An external MariaDB 10.6+ instance is required.</Requires>
+  <Requires/>
   <Config Name="WebUI" Target="8000" Default="8000" Mode="tcp" Description="HTTP port of the PocketLog web interface" Type="Port" Display="always" Required="true" Mask="false">8000</Config>
-  <Config Name="DB_HOST" Target="DB_HOST" Default="mariadb" Mode="" Description="Hostname or IP of the MariaDB instance" Type="Variable" Display="always" Required="true" Mask="false">mariadb</Config>
-  <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Mode="" Description="MariaDB port" Type="Variable" Display="always" Required="true" Mask="false">3306</Config>
-  <Config Name="DB_NAME" Target="DB_NAME" Default="pocketlog" Mode="" Description="Database name" Type="Variable" Display="always" Required="true" Mask="false">pocketlog</Config>
-  <Config Name="DB_USER" Target="DB_USER" Default="pocketlog" Mode="" Description="Database user" Type="Variable" Display="always" Required="true" Mask="false">pocketlog</Config>
-  <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="Database password" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="App Config Dir" Target="/config" Default="/mnt/user/appdata/pocketlog" Mode="rw" Description="Persistent app directory. Holds the SQLite database (/config/db, unless an external MariaDB is used) and optional log files (/config/logs)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/pocketlog</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Host user ID that owns the files under /config (Unraid: 99)" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Host group ID for the files under /config (Unraid: 100)" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
   <Config Name="TZ" Target="TZ" Default="Europe/Berlin" Mode="" Description="Container timezone" Type="Variable" Display="advanced" Required="false" Mask="false">Europe/Berlin</Config>
+  <Config Name="SQLITE_PATH" Target="SQLITE_PATH" Default="/config/db/pocketlog.db" Mode="" Description="Path of the SQLite database file (only used when no DB_* variable is set)" Type="Variable" Display="advanced" Required="false" Mask="false">/config/db/pocketlog.db</Config>
+  <Config Name="DB_HOST" Target="DB_HOST" Default="" Mode="" Description="MariaDB option only: hostname or IP of the MariaDB instance. Setting any DB_* variable switches PocketLog from SQLite to MariaDB. Leave empty to use the embedded SQLite database." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DB_PORT" Target="DB_PORT" Default="" Mode="" Description="MariaDB option only: port (default 3306)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DB_NAME" Target="DB_NAME" Default="" Mode="" Description="MariaDB option only: database name (default pocketlog)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DB_USER" Target="DB_USER" Default="" Mode="" Description="MariaDB option only: database user (default pocketlog)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Mode="" Description="MariaDB option only: database password. Required once any DB_* variable is set (MariaDB active)." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
   <Config Name="DEFAULT_LOCALE" Target="DEFAULT_LOCALE" Default="de-DE" Mode="" Description="Default locale for new accounts (BCP-47, e.g. de-DE, de-AT, de-CH, en-GB, en-US). Each user can override it." Type="Variable" Display="advanced" Required="false" Mask="false">de-DE</Config>
   <Config Name="DEFAULT_CURRENCY" Target="DEFAULT_CURRENCY" Default="EUR" Mode="" Description="Default currency for new accounts (ISO 4217, e.g. EUR, USD, GBP, CHF, JPY). Display-only, per-user overridable." Type="Variable" Display="advanced" Required="false" Mask="false">EUR</Config>
 </Container>
